@@ -34,10 +34,10 @@
                 <td class="text-start">{{ acRow.display_name }}</td>
                 <td class="text-start">{{ acRow.role_name }}</td>
                 <td class="text-start"><!--:href="'/editAccount/' + acRow.id"-->
-                  <button class="bi bi-pencil-square btn btn-success mx-2" @click="editAccount(acRow.id)" v-b-tooltip.hover title="Edit the user!">
+                  <button class="btn btn-success mx-2" @click="editAccount(acRow.id)" v-b-tooltip.hover title="Edit the user!">Edit
                   </button>
-                  <button type="button" class="bi bi-trash3 btn btn-danger mx-2" @click="deleteAccount(acRow.id)" v-b-tooltip.hover title="Delete the user!">
-                  </button>
+                  <button type="button" class="btn btn-danger mx-2" @click="deleteAccount(acRow.id)" v-b-tooltip.hover title="Delete the user!">
+                  Delete</button>
                 </td>
               </tr>
             </tbody>
@@ -82,7 +82,6 @@ export default {
           switch (res.status) {
             case 200:
               this.AcRows = res.data;
-              $(document).ready(function () { $('#admintable').DataTable(); });
               break;
             default:
               this.error = "Database error! Status: " + result.status + " Error: " + result.data;
