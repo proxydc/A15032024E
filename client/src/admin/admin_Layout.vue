@@ -38,30 +38,4 @@ export default {
     },
   },
 };
-
-window.onload = function () {
-  inactivityTime();
-};
-
-var inactivityTime = function () {
-  var t;
-  window.onload = resetTimer;
-  // DOM Events
-  document.onmousemove = resetTimer;
-  document.onkeypress = resetTimer;
-
-  function logout() {
-    //alert("You are now logged out.");
-    if (localStorage.getItem("useraccount") != "") {
-      localStorage.setItem("useraccount", "");
-      location.href = process.env.NODE_ENV == 'production' ? process.env.VUE_APP_SITEURLPROD : process.env.VUE_APP_SITEURLDEV;
-      //this.$router.push({ name: "Home" });
-    }
-  }
-  function resetTimer() {
-    clearTimeout(t);
-    t = setTimeout(logout, 600000000);//10 minutes
-    // 1000 milisec = 1 sec
-  }
-};
 </script>
