@@ -129,19 +129,7 @@
                 />
               </div>
             </div>
-          </div>
-
-          <div class="row dc-section">
-            <div class="col">
-              <h5>En bref</h5>
-              <textarea
-                class="form-control dc-ta-bref"
-                placeholder="..."
-                v-model="dc.document.bref"
-              ></textarea>
-            </div>
-          </div>
-
+          </div>    
           <div class="row dc-section">
             <div class="col text-center">
               <div class="btn-group" role="group">
