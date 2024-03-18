@@ -3,8 +3,8 @@ const dbRoutes = require('./src/database/routes');
 const app = express();
 const PORT = 3000;
 const cors = require('cors');
-const siteUrlDev = process.env.VUE_APP_SITEURLDEV; //"http://localhost:8080";
-const siteUrlProd = process.env.VUE_APP_SITEURLPROD; //"https://mysitevue.onrender.com";
+const siteUrlDev = "http://localhost:8080";
+const siteUrlProd = process.env.VUE_APP_SITEURLPROD; //undefined but works in server
 
 app.use(express.json());
 app.use(cors({
@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
 app.use("/api/v1/database", dbRoutes);
 app.listen(PORT, function check(err) {
     console.log("devurl: " + siteUrlDev);
-    console.log("produrl: " + siteUrlProd);
+    console.log("produrl: " + process.env.VUE_APP_SITEURLPROD);
     console.log("env: " + app.get("env"));
     if (err)
         console.log("error");
